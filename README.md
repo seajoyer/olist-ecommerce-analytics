@@ -163,7 +163,7 @@ Olist — бразильский маркетплейс, объединяющи�
 - Cross-sell анализ (совместные покупки)
 - Факторы влияния на рейтинг
 - Метрики доставки по регионам
-![Product Performance & Operations](dashboards/Product%20Performance%20%26%Operations.png)
+![Product Performance & Operations](dashboards/Product%20Performance%20%26%20Operations.png)
 
 ---
 
