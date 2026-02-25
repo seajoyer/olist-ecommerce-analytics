@@ -1,10 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   packages = with pkgs; [
     git
     pwgen
-    docker-compose 
+    docker-compose
+    postgresql_18
   ];
 
   languages.python = {
@@ -29,7 +30,6 @@
     initialScript = ''
       # ALTER ROLE dmitry WITH PASSWORD 'redashpass';
     '';
-
     hbaConf = ''
       # Local Unix socket connections (passwordless, OS user matching or trust)
       local   all             all                                     trust
@@ -44,6 +44,12 @@
       host    all             all             0.0.0.0/0               trust
       host    all             all             ::/0                    trust
     '';
+  };
+
+  processes.postgres = {
+    ready = {
+      exec = lib.mkForce "nc -z 127.0.0.1 5432 || exit 1";
+    };
   };
 
   dotenv.enable = true;
