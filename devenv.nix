@@ -27,9 +27,6 @@
       { name = "project"; }
       { name = "redash"; }
     ];
-    initialScript = ''
-      # ALTER ROLE dmitry WITH PASSWORD 'redashpass';
-    '';
     hbaConf = ''
       # Local Unix socket connections (passwordless, OS user matching or trust)
       local   all             all                                     trust
